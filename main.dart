@@ -17,8 +17,15 @@ void main() {
         case TimeOfDay.noon:
           newStrength += 10;
         case TimeOfDay.evening:
+          newStrength = baseStrength;
         case TimeOfDay.night:
           newStrength -= 10;
+      }
+      switch (weather) {
+        case Weather.sunny:
+        case Weather.rainy:
+        case Weather.stormy:
+          newStrength = baseStrength;
       }
         
     case CharacterClass.Mage:
@@ -33,7 +40,7 @@ void main() {
         case Weather.sunny:
           newStrength -= 5;
         case Weather.rainy:
-          newStrength;
+          newStrength = baseStrength;
         case Weather.stormy:
           newStrength += 15;
       }
@@ -50,7 +57,6 @@ void main() {
         case Weather.sunny:
           newStrength += 10;
         case Weather.rainy:
-          newStrength -= 15;
         case Weather.stormy:
           newStrength -= 15;
       }
