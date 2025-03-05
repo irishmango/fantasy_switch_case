@@ -1,59 +1,61 @@
 enum CharacterClass {Warrior, Mage, Archer}
-enum Weather {Sunny, Rainy, Stormy}
-enum TimeOfDay {Morning, Noon, Evening, Night}
+enum Weather {sunny, rainy, stormy}
+enum TimeOfDay {morning, noon, evening, night}
 
 void main() {
   CharacterClass characterClass = CharacterClass.Warrior;
-  Weather weather = Weather.Rainy;
-  TimeOfDay timeOfDay = TimeOfDay.Noon;
-  int strength = 38;
+  Weather weather = Weather.rainy;
+  TimeOfDay timeOfDay = TimeOfDay.noon;
+  int baseStrength = 38;
+  int newStrength = baseStrength;
   
   
   switch (characterClass) {
     case CharacterClass.Warrior:
       switch (timeOfDay) {
-        case TimeOfDay.Morning:
-        case TimeOfDay.Noon:
-          strength += 10;
-        case TimeOfDay.Evening:
-        case TimeOfDay.Night:
-            strength -= 10;
+        case TimeOfDay.morning:
+        case TimeOfDay.noon:
+          newStrength += 10;
+        case TimeOfDay.evening:
+        case TimeOfDay.night:
+          newStrength -= 10;
       }
         
     case CharacterClass.Mage:
       switch (timeOfDay) {
-        case TimeOfDay.Morning:
-        case TimeOfDay.Noon:
-        case TimeOfDay.Evening:
-        case TimeOfDay.Night:
-            strength = strength;
+        case TimeOfDay.morning:
+        case TimeOfDay.noon:
+        case TimeOfDay.evening:
+        case TimeOfDay.night:
+            newStrength = baseStrength;
       }
       switch (weather) {
-        case Weather.Sunny:
-          strength -= 5;
-        case Weather.Rainy:
-          strength = strength;
-        case Weather.Stormy:
-          strength += 15;
+        case Weather.sunny:
+          newStrength -= 5;
+        case Weather.rainy:
+          newStrength;
+        case Weather.stormy:
+          newStrength += 15;
       }
       
     case CharacterClass.Archer:
       switch (timeOfDay) {
-        case TimeOfDay.Morning:
-        case TimeOfDay.Noon:
-        case TimeOfDay.Evening:
-        case TimeOfDay.Night:
-            strength = strength;
+        case TimeOfDay.morning:
+        case TimeOfDay.noon:
+        case TimeOfDay.evening:
+        case TimeOfDay.night:
+            newStrength = baseStrength;
       }
       switch (weather) {
-        case Weather.Sunny:
-          strength += 10;
-        case Weather.Rainy:
-          strength -= 15;
-        case Weather.Stormy:
-          strength -= 15;
+        case Weather.sunny:
+          newStrength += 10;
+        case Weather.rainy:
+          newStrength -= 15;
+        case Weather.stormy:
+          newStrength -= 15;
       }
 }
 
-print ("Character: ${characterClass.name} \nWeather: ${weather.name} \nTime of Day: ${timeOfDay.name} \nStrength: ${strength}"); 
+
+print("Your ${characterClass.name} has a strength of $newStrength in ${weather.name} weather " "${(timeOfDay == TimeOfDay.morning || timeOfDay == TimeOfDay.evening) ? 'in the' : 'at'} ${timeOfDay.name}. " "${(newStrength > baseStrength ? 'Dangerous!' : 'Not optimal. Be careful out there.')}");
 }
