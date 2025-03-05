@@ -27,7 +27,7 @@ void main() {
         case TimeOfDay.noon:
         case TimeOfDay.evening:
         case TimeOfDay.night:
-            newStrength = baseStrength;
+          newStrength = baseStrength;
       }
       switch (weather) {
         case Weather.sunny:
@@ -44,7 +44,7 @@ void main() {
         case TimeOfDay.noon:
         case TimeOfDay.evening:
         case TimeOfDay.night:
-            newStrength = baseStrength;
+          newStrength = baseStrength;
       }
       switch (weather) {
         case Weather.sunny:
